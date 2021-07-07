@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
-import {Pagina, Header, Lista, Card} from './HomePage/Styled'
+import {Pagina, Header, Lista, Card} from './Style/Styled'
 import Pokebola from '../imagem/Pokebola.png'
 import bulbasaur from '../imagem/bulbasaur.png'
 import image3 from '../imagem/image3.png';

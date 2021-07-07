@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
-import {Pagina, Header, Lista, Details} from './HomePage/Styled'
+import {Pagina, Header, Lista, Details} from './Style/Styled'
 import bulbasaur from '../imagem/bulbasaur.png'
 
 export const PokemonDetails = () => {
