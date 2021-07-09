@@ -1,11 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
-<<<<<<< HEAD
-=======
 import {Pagina, Header, Lista, Details} from './Style/Styled'
 import bulbasaur from '../imagem/bulbasaur.png'
->>>>>>> componenentes-visuais-base
 
 export const PokemonDetails = () => {
     const history = useHistory()
@@ -22,16 +19,7 @@ export const PokemonDetails = () => {
         goToDetails(history)
     }
 
-    return (
-<<<<<<< HEAD
-        <div>
-            <h1>Página de detalhes do pokemon</h1>
-            <button onClick={goToHome}>Página Inicial</button>
-            <button onClick={goToPokedexPage}>Pokedex</button>
-            <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-        </div>
-=======
-        
+    return (  
         <Pagina>
         <Header>
         <h1>Página Pokedex</h1>
@@ -47,6 +35,5 @@ export const PokemonDetails = () => {
         </Details>
         </Lista>
     </Pagina>
->>>>>>> componenentes-visuais-base
     )
 }

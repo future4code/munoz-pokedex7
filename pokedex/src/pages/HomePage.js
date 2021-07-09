@@ -1,8 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
-<<<<<<< HEAD
-=======
 import {Pagina, Header, Lista, Card} from './Style/Styled'
 import Pokebola from '../imagem/Pokebola.png'
 import bulbasaur from '../imagem/bulbasaur.png'
@@ -12,9 +10,7 @@ import image5 from '../imagem/image5.png';
 import image6 from '../imagem/image6.png';
 import image7 from '../imagem/image7.png';
 
-
   // <h1>Página inicial da lista de pokemons</h1>// 
->>>>>>> componenentes-visuais-base
 
 export const HomePage = () => {
     const history = useHistory()
@@ -32,15 +28,6 @@ export const HomePage = () => {
     }
 
     return (
-<<<<<<< HEAD
-        <div>
-            <h1>Página inicial da lista de pokemons</h1>
-            <button onClick={goToHome}>Página Inicial</button>
-            <button onClick={goToPokedexPage}>Pokedex</button>
-            <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-        </div>
-=======
-        
         <Pagina>
             <Header>
             <button onClick={goToHome}>Página Inicial</button>
@@ -101,6 +88,5 @@ export const HomePage = () => {
 
             </Lista>
         </Pagina>
->>>>>>> componenentes-visuais-base
     )
 }
