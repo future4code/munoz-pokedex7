@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
 import {Pagina, Header, Lista, Card} from './Style/Styled'
 import Pokebola from '../imagem/Pokebola.png'
-// import bulbasaur from '../imagem/bulbasaur.png'
-// import image3 from '../imagem/image3.png';
-// import image4 from '../imagem/image4.png';
-// import image5 from '../imagem/image5.png';
-// import image6 from '../imagem/image6.png';
-// import image7 from '../imagem/image7.png';
+import bulbasaur from '../imagem/bulbasaur.png'
+import image3 from '../imagem/image3.png';
+import image4 from '../imagem/image4.png';
+import image5 from '../imagem/image5.png';
+import image6 from '../imagem/image6.png';
+import image7 from '../imagem/image7.png';
 
   // <h1>Página inicial da lista de pokemons</h1>// 
 
@@ -38,17 +38,17 @@ export const HomePage = (props) => {
     
 
     
-    // const catchThemAll = (PokeNome) => {
-    //   const Url = `https://pokeapi.co/api/v2/pokemon/${PokeNome}/` 
-    //   axios
-    //   .get(Url)
-    //   .then((response) => setPokemon(response.data))
-    //   .catch((err) => console.log("Erro"))
-    // }
+    const catchThemAll = (PokeNome) => {
+      const Url = `https://pokeapi.co/api/v2/pokemon/1/` 
+      axios
+      .get(Url)
+      .then((response) => setPokemon(response.data))
+      .catch((err) => console.log("Erro"))
+    }
 
-    // useEffect (() => {
-    //     catchThemAll(props.pokemon)
-    // }, [props.pokemon])
+    useEffect (() => {
+        catchThemAll(props.pokemon)
+    }, [props.pokemon])
 
     const history = useHistory()
 
@@ -77,19 +77,16 @@ export const HomePage = (props) => {
                 <div>
                 <Card>
                 <div>
-                {pokeList.sprites && pokeList.sprites.map( (pokemon) => {
-                  return (    
-                  <img key={pokemon.name} src={pokemon.sprites.front_default} alt={pokemon.name} />
+                {pokemon.sprites && (  
+                  <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                   )
                 }
-                )}
-                
                 </div>
-                <h1>Bulbasaur</h1>
+                <h1>{pokemon.name}</h1>
                 <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
                 </Card>
                 </div>
-                {/* <div>
+                <div>
                 <Card>
                 <img src ={image4}/>
                 <h1>Bulbasaur</h1>
@@ -128,7 +125,7 @@ export const HomePage = (props) => {
                 <img src ={bulbasaur}/>
                 <h1>Bulbasaur</h1>
                 <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-                </Card> */}
+                </Card>
 
 
             </Lista>
