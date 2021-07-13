@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useState,useEffect } from 'react'
+import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
 import { Pagina, Header, Lista, Card } from './Style/Styled'
@@ -9,16 +10,14 @@ import image4 from '../imagem/image4.png';
 import image5 from '../imagem/image5.png';
 import image6 from '../imagem/image6.png';
 import image7 from '../imagem/image7.png';
-import { useRequestData } from '../hooks/useRequestData'
 import { PokeCard } from '../components/PokeCard'
 
 // <h1>Página inicial da lista de pokemons</h1>// 
 
 export const HomePage = () => {
     const history = useHistory()
-    const pokemonList = useRequestData('/?limit=30&offset=30', 'results')
-
-
+    const [pokemonList, setPokemonList] = useState([])
+    
     const goToHome = () => {
         goToHomePage(history)
     }
@@ -30,6 +29,22 @@ export const HomePage = () => {
     const goToDetailsPage = () => {
         goToDetails(history)
     }
+
+    const getPokemon = () => {
+        axios.get(
+            `https://pokeapi.co/api/v2/pokemon/?limit=30&offset=30`
+        )
+            .then(response => {
+                setPokemonList(response.data.results)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    useEffect(() => {
+        getPokemon() 
+    }, [])
     
     return (
         <Pagina>
@@ -43,7 +58,7 @@ export const HomePage = () => {
             <Lista>
                 {pokemonList.length && pokemonList.map(pokemon => {
                     return (
-                            <PokeCard pic={image7} pokemon={pokemon} />
+                            <PokeCard pokemon={pokemon} />
                     )
                 })}
             </Lista>
