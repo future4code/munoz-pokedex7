@@ -14,7 +14,7 @@ export const PokemonDetails = (props) => {
 
     const getDetail = () => {
         axios.get(
-            `https://pokeapi.co/api/v2/pokemon/12`
+            `https://pokeapi.co/api/v2/pokemon/${id}`
         )
             .then(response => {
                 setPokeDetail(response.data)
