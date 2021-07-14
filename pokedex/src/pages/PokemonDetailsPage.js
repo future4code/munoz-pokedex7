@@ -14,7 +14,7 @@ export const PokemonDetails = (props) => {
 
     const getDetail = () => {
         axios.get(
-            `https://pokeapi.co/api/v2/${id}`
+            `https://pokeapi.co/api/v2/pokemon/12`
         )
             .then(response => {
                 setPokeDetail(response.data)
@@ -25,7 +25,7 @@ export const PokemonDetails = (props) => {
     }
 
     useEffect(()=>{
-        getDetail()
+        getDetail(props.pokeDetail)
       },[])
 
     const history = useHistory()
@@ -42,7 +42,7 @@ export const PokemonDetails = (props) => {
         goToDetails(history)
     }
 
-    console.log(pokeDetail)
+    // console.log(pokeDetail)
 
     return (  
         <Pagina>
@@ -56,10 +56,10 @@ export const PokemonDetails = (props) => {
         <Lista>
         <Details>
             <div>
-                <div className='img'>
+                <div className="img">
                     <img src={pokeDetail.sprites.front_default} />
                 </div>
-                <div className='img'>
+                <div className="img">
                     <img src={pokeDetail.sprites.back_default} />
                 </div>
             </div>
@@ -68,7 +68,6 @@ export const PokemonDetails = (props) => {
               {pokeDetail.stats.map((pokemon)=>{
                 return <p>{pokemon.stat.name}: {pokemon.base_stat}</p>
               })}
-            <h1>Bulbasaur</h1>
             </div>
             <div className="type">
              {pokeDetail.types.map((pokemon)=>{
