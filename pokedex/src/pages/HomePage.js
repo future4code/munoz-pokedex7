@@ -58,7 +58,7 @@ export const HomePage = () => {
             <Lista>
                 {pokemonList.length && pokemonList.map(pokemon => {
                     return (
-                            <PokeCard pokemon={pokemon}  />
+                            <PokeCard pokemon={pokemon} />
                     )
                 })}
             </Lista>
