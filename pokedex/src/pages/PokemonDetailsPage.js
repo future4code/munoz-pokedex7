@@ -12,7 +12,7 @@ export const PokemonDetails = (props) => {
     const pathParams = useParams()
     const id = pathParams.id
 
-    const getDetail = (pokeName) => {
+    const getDetail = () => {
         axios.get(
             `https://pokeapi.co/api/v2/${id}`
         )
