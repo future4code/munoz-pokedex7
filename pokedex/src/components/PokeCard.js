@@ -22,12 +22,14 @@ export const PokeCard = (props) => {
         getPokemonPicture(props.pokemon.url)
     }, [])
 
+    
+
     return (
         <div>
             <Card>
                 <img src={pokemonPic} />
                 <h1>{props.pokemon.name}</h1>
-                {/* <button onClick={goToDetailsPage}>Detalhes do pokemon</button> */}
+                <button onClick={props.addPokedex}>Adicionar à Pokedex</button>
             </Card>
         </div>
     )
