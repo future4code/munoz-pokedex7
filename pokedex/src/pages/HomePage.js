@@ -45,7 +45,7 @@ export const HomePage = () => {
     useEffect(() => {
         getPokemon() 
     }, [])
-    
+
     return (
         <Pagina>
             <Header>
