@@ -8,6 +8,7 @@ export const PokedexGlobalState = (props) => {
         pokedex: pokedex,
         setPokedex: setPokedex
     }
+
     return (
         <GlobalContext.Provider value={context}>
             {props.children}

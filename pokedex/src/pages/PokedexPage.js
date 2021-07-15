@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
 import { Pagina, Header, Lista, Card } from './Style/Styled'
@@ -10,7 +10,7 @@ import { PokeCard } from '../components/PokeCard'
 
 export const Pokedex = () => {
     const history = useHistory()
-    const { pokedex, setPokedex} = useGlobalContext()
+    const { pokedex } = useGlobalContext()
 
     const goToHome = () => {
         goToHomePage(history)
