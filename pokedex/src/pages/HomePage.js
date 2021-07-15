@@ -45,7 +45,7 @@ export const HomePage = () => {
     useEffect(() => {
         getPokemon() 
     }, [])
-    
+  
     return (
         <Pagina>
             <Header>
@@ -65,44 +65,4 @@ export const HomePage = () => {
         </Pagina>
     )
 }
-{/* <div>
-                <Card>
-                <img src ={image4}/>
-                <h1>Bulbasaur</h1>
-                <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-                </Card>
-                </div>
-
-                <Card>
-                <img src ={image5}/>
-                <h1>Bulbasaur</h1>
-                <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-                </Card>
-
-                <Card>
-                <img src ={image3}/>
-                <h1>Bulbasaur</h1>
-                <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-                </Card>
-
-                <Card>
-                <img src ={image6}/>
-                <h1>Bulbasaur</h1>
-                <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-                </Card>
-
-                
-                <Card>
-                <img src ={image7}/>
-                <h1>Bulbasaur</h1>
-                <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-                </Card>
-
-
-
-                <Card>
-                <img src ={bulbasaur}/>
-                <h1>Bulbasaur</h1>
-                <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
-                </Card> */}
 
