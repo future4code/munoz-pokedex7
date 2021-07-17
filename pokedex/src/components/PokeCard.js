@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Card } from '../pages/Style/Styled'
 import { useGlobalContext } from '../global/GlobalContext'
+import { useHistory } from 'react-router-dom'
+import { goToDetails} from '../router/coordinator'
 
 export const PokeCard = (props) => {
+    const history = useHistory()
     const [pokemonPic, setPokemonPic] = useState("")
     const { pokedex, setPokedex } = useGlobalContext()
 
@@ -53,6 +56,10 @@ export const PokeCard = (props) => {
 
     const funcResult = checkPokedex(props.pokemon) 
 
+    const goToDetailsPage = () => {
+        goToDetails(history, props.pokemon.name)
+    }
+
     return (
         <div>
             <Card>
@@ -61,7 +68,7 @@ export const PokeCard = (props) => {
                 <button onClick={funcResult ? rmvFromPokedex : addToPokedex}>
                     {funcResult ? "Remover da Pokedex" : "Adicionar à Pokedex"}
                 </button>
-                {/* <button onClick={goToDetailsPage}>Detalhes do pokemon</button> */}
+                <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
             </Card>
         </div>
     )
