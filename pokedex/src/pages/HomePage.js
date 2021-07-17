@@ -32,7 +32,7 @@ export const HomePage = () => {
 
     const getPokemon = () => {
         axios.get(
-            `https://pokeapi.co/api/v2/pokemon/?limit=30&offset=30`
+            `https://pokeapi.co/api/v2/pokemon/?limit=30&offset=1`
         )
             .then(response => {
                 setPokemonList(response.data.results)

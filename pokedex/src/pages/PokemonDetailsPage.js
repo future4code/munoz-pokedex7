@@ -10,14 +10,15 @@ export const PokemonDetails = (props) => {
     const [pokeDetail, setPokeDetail] = useState(undefined)
 
     const pathParams = useParams()
-    const id = pathParams.id
+    const pokemonName = pathParams.pokemon
 
     const getDetail = () => {
         axios.get(
-            `https://pokeapi.co/api/v2/pokemon/${id}`
+            `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
         )
             .then(response => {
                 setPokeDetail(response.data)
+                console.log(response.data)
             })
             .catch(error => {
                 console.log(error)
