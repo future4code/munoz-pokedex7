@@ -25,14 +25,18 @@ export const PokeCard = (props) => {
     useEffect(() => {
         getPokemonPicture(props.pokemon.url)
     }, [])
+    
+    useEffect(() => {
+        getPokemonPicture(props.pokemon.url)
+    }, [pokedex])
 
     const addToPokedex = () => {
-        setPokedex([...pokedex, props.pokemon])
+        setPokedex([props.pokemon, ...pokedex])
     }
 
     const rmvFromPokedex = () => {
         const newPokedex = pokedex.filter(pokemonOnPokedex => {
-            if (pokemonOnPokedex !== props.pokemon) {
+            if (pokemonOnPokedex.name !== props.pokemon.name) {
                 return true
             } else {
                 return false
@@ -44,7 +48,7 @@ export const PokeCard = (props) => {
 
     const checkPokedex = (pokemon) => {
         const pokedexContainsPokemon = pokedex.find((pokemonOnPokedex) => {
-            if (pokemonOnPokedex === pokemon) {
+            if (pokemonOnPokedex.name === pokemon.name) {
                 return true
             } else {
                 return false
