@@ -1,11 +1,12 @@
 import React from 'react'
 import { Router } from './router/Router'
+import { PokedexGlobalState } from './global/PokedexGlobalState'
 
 function App() {
   return (
-    <div className="App">
-      <Router />
-    </div>
+      <PokedexGlobalState>
+        <Router />
+      </PokedexGlobalState>
   );
 }
 

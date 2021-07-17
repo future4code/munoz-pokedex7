@@ -61,22 +61,57 @@ export const Card = styled.div`
     justify-content: center;
 
     button{
+        cursor: pointer;
         width:155px;
         height: 45px;
         border-radius: 50px;
         border:none;
+        transition: all 0.6s;
         background-color: #52AE5F;
+        color:#ffffff;
+        
         font-size:14px;
         font-style:normal;
         font-weight: 500;
-        color:#ffffff;
         text-transform: uppercase;
+       
+        :hover{
+            background-color: #DC0A2D;
+        }
     }
 
     img {
         margin:-160px 0 0 0;
-        padding:2%;
+        padding:0;
+        width:200px;
+    }
+
+    h1{
+        margin:-20px 0 20px 0;
+    }
+
+    a{  
+        display:block;
+        position:relative;
         width:auto;
+        height: 1rem;
+        color:#000000;
+        cursor: pointer;
+        
+        font-size:14px;
+        font-style:normal;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: all 0.4s cubic-bezier(.17,1,.92,.93) 0s;
+       
+        :hover{ 
+            width:auto;
+            transition: all 0.4s cubic-bezier(.17, 2,.76,.66) 0.1s;
+            font-weight: 600; 
+            color:#000000 !important;
+            border-radius: 50px;
+            border:none;
+        }
     }
 `
 

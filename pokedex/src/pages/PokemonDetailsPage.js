@@ -1,10 +1,33 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useHistory, useParams } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
 import {Pagina, Header, Lista, Details} from './Style/Styled'
-import bulbasaur from '../imagem/bulbasaur.png'
 
-export const PokemonDetails = () => {
+
+export const PokemonDetails = (props) => {
+
+    const [pokeDetail, setPokeDetail] = useState(undefined)
+
+    const pathParams = useParams()
+    const id = pathParams.id
+
+    const getDetail = () => {
+        axios.get(
+            `https://pokeapi.co/api/v2/pokemon/${id}`
+        )
+            .then(response => {
+                setPokeDetail(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    useEffect(()=>{
+        getDetail(props.pokeDetail)
+      },[])
+
     const history = useHistory()
 
     const goToHome = () => {
@@ -19,8 +42,9 @@ export const PokemonDetails = () => {
         goToDetails(history)
     }
 
-    return (
-        
+    // console.log(pokeDetail)
+
+    return (  
         <Pagina>
         <Header>
         <h1>Página Pokedex</h1>
@@ -28,13 +52,42 @@ export const PokemonDetails = () => {
         <button onClick={goToPokedexPage}>Pokedex</button>
         <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
         </Header>
+        {pokeDetail && (
         <Lista>
         <Details>
-            <img src={bulbasaur}/>
-            <h1>Bulbasaur</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <div>
+                <div className="img">
+                    <img src={pokeDetail.sprites.front_default} />
+                </div>
+                <div className="img">
+                    <img src={pokeDetail.sprites.back_default} />
+                </div>
+            </div>
+            <div className="status"> 
+            <h4>Status</h4>
+              {pokeDetail.stats.map((pokemon)=>{
+                return <p>{pokemon.stat.name}: {pokemon.base_stat}</p>
+              })}
+            </div>
+            <div className="type">
+             {pokeDetail.types.map((pokemon)=>{
+                return <p>Tipo: {pokemon.type.name}</p>
+              })}
+            </div>
+            <div className="moves">
+            <h4>Moves</h4>
+                {pokeDetail.moves.map((pokemon,i)=>{
+                  if(i<5){
+                    return <p>{pokemon.move.name}</p>
+                  }else{
+
+                  }
+                
+              })}
+            </div>   
         </Details>
         </Lista>
+        )}
     </Pagina>
     )
 }
