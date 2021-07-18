@@ -10,9 +10,9 @@ export const PokeCard = (props) => {
     const [pokemonPic, setPokemonPic] = useState("")
     const { pokedex, setPokedex } = useGlobalContext()
 
-    const getPokemonPicture = (pokemonUrl) => {
+    const getPokemonPicture = () => {
         axios.get(
-            pokemonUrl
+            `https://pokeapi.co/api/v2/pokemon/${props.pokemon.name}`
         )
             .then(response => {
                 setPokemonPic(response.data.sprites.front_default)
@@ -46,9 +46,9 @@ export const PokeCard = (props) => {
         setPokedex(newPokedex)
     }
 
-    const checkPokedex = (pokemon) => {
+    const checkPokedex = () => {
         const pokedexContainsPokemon = pokedex.find((pokemonOnPokedex) => {
-            if (pokemonOnPokedex.name === pokemon.name) {
+            if (pokemonOnPokedex.name === props.pokemon.name) {
                 return true
             } else {
                 return false
@@ -58,7 +58,7 @@ export const PokeCard = (props) => {
         return pokedexContainsPokemon
     }
 
-    const funcResult = checkPokedex(props.pokemon) 
+    const funcResult = checkPokedex() 
 
     const goToDetailsPage = () => {
         goToDetails(history, props.pokemon.name)
