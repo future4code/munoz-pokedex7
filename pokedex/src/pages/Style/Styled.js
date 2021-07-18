@@ -150,8 +150,6 @@ export const Details = styled.div`
 
 `
 
-// import styled from 'styled-components'
-
 
 
 export const PokeName= styled.div`
@@ -212,19 +210,6 @@ margin:1em;
 background-color: transparent;
 `;
 
-
-
-
-
-export const CardType = styled.div`
-display:flex;
-justify-content:space-around;
-width:40vw;
-height:100px;
-box-shadow: 6px 6px 10px rgba(142, 142, 142, 20%);
-margin:1em;
-background-color: transparent;
-`;
 
 export const CardMove = styled.div`
 display:flex;
