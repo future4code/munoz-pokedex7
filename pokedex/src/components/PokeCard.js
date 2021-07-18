@@ -3,16 +3,13 @@ import axios from 'axios'
 import { Card } from '../pages/Style/Styled'
 import { useGlobalContext } from '../global/GlobalContext'
 import { useHistory } from 'react-router-dom'
-import {goToDetails} from '../router/coordinator'
+import { goToDetails} from '../router/coordinator'
 
 export const PokeCard = (props) => {
     const history = useHistory()
     const [pokemonPic, setPokemonPic] = useState("")
     const { pokedex, setPokedex } = useGlobalContext()
 
-    const goToDetailsPage = () => {
-        goToDetails(history)
-    }
     const getPokemonPicture = (pokemonUrl) => {
         axios.get(
             pokemonUrl
@@ -28,14 +25,18 @@ export const PokeCard = (props) => {
     useEffect(() => {
         getPokemonPicture(props.pokemon.url)
     }, [])
+    
+    useEffect(() => {
+        getPokemonPicture(props.pokemon.url)
+    }, [pokedex])
 
     const addToPokedex = () => {
-        setPokedex([...pokedex, props.pokemon])
+        setPokedex([props.pokemon, ...pokedex])
     }
 
     const rmvFromPokedex = () => {
         const newPokedex = pokedex.filter(pokemonOnPokedex => {
-            if (pokemonOnPokedex !== props.pokemon) {
+            if (pokemonOnPokedex.name !== props.pokemon.name) {
                 return true
             } else {
                 return false
@@ -47,7 +48,7 @@ export const PokeCard = (props) => {
 
     const checkPokedex = (pokemon) => {
         const pokedexContainsPokemon = pokedex.find((pokemonOnPokedex) => {
-            if (pokemonOnPokedex === pokemon) {
+            if (pokemonOnPokedex.name === pokemon.name) {
                 return true
             } else {
                 return false
@@ -59,6 +60,10 @@ export const PokeCard = (props) => {
 
     const funcResult = checkPokedex(props.pokemon) 
 
+    const goToDetailsPage = () => {
+        goToDetails(history, props.pokemon.name)
+    }
+
     return (
         <div>
             <Card>
@@ -66,8 +71,8 @@ export const PokeCard = (props) => {
                 <h1>{props.pokemon.name}</h1>
                 <button onClick={funcResult ? rmvFromPokedex : addToPokedex}>
                     {funcResult ? "Remover da Pokedex" : "Adicionar à Pokedex"}
-                </button><p></p>
-                <a onClick={goToDetailsPage}>Detalhes do pokemon</a>
+                </button>
+                <button onClick={goToDetailsPage}>Detalhes do pokemon</button>
             </Card>
         </div>
     )

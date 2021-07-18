@@ -66,6 +66,7 @@ export const Card = styled.div`
         height: 45px;
         border-radius: 50px;
         border:none;
+
         transition: all 0.6s;
         background-color: #52AE5F;
         color:#ffffff;
