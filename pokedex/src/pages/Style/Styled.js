@@ -157,12 +157,7 @@ export const PokeName= styled.div`
     justify-content: center;
     width:100vw;
     height:100px;
-    margin: 1em;
-    h1{
-      color:#e93457;
-      
-    }
-   
+    margin: 1em;  
 `;
 
 
