@@ -1,16 +1,14 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Kelvin De Sá Ferreira 
+- Mayara Cristina
+- Daniel do Nascimento Santos
 
-Link do Surge: www.link.com.br
+Link do Surge: http://different-boy.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
-
-O que não funciona: 
-- Item 3
-- Item 4
+- Home Page
+- Details Page
+- Pokédex Page
+- Pokemon Details Page
