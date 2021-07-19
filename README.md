@@ -1,16 +1,12 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Daniel do Nascimento
+- Kelvin de Sá Ferreira 
+- Mayara Cristina
 
-Link do Surge: www.link.com.br
+Link do Surge: http://different-boy.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
-
-O que não funciona: 
-- Item 3
-- Item 4
+- É possível adicionar pokemon da lista à pokedex e remover, tanto na página inicial como na página de detalhes, e na página da pokedex é possível remover os pokemon adicionados e quando o pokemon é adicionado o botão muda para o botão de remover, não sendo possível adicionar o mesmo pokemon duas vezes.
+- É possível pegar os detalhes do pokemon escolhido seja na página inical como na pokedex.
