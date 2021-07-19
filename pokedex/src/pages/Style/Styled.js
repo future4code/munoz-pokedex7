@@ -125,12 +125,13 @@ export const Details = styled.div`
     display: block;
 
     width:100vw;
-    flex-direction: column;
+    flex-direction: row;
 
     border-top: 2rem solid #DC0A2D;
     border-radius: 100% 100% 0px 0; 
     text-align:center;
     justify-content: center;
+    
 
 
     img {
@@ -145,6 +146,77 @@ export const Details = styled.div`
         padding: 0 5%;
     }
 
+    
 
 `
+
+
+
+export const PokeName= styled.div`
+    display:flex;
+    justify-content: center;
+    width:100vw;
+    height:100px;
+    margin: 1em;  
+`;
+
+
+export const Text= styled.strong`
+   display:flex;
+   flex-direction:row;
+   width:20vw;
+
+`;
+
+export const CardImg= styled.div`
+   display:flex;
+   flex-direction: column-reverse;
+   
+`;
+
+export const ContainerStatus= styled.div`
+   display:flex;
+   flex-direction: row;
+   text-align:left;
+  
+   
+`;
+
+export const CardPhoto = styled.div`
+   width: 300px;
+   height: 300px;
+   margin:1em;
+   display:flex;
+   flex-direction:column-reverse;
+  
+  img{
+    width:250px;
+    
+  }
+ `;
+export const CardStatus = styled.div`
+display:flex;
+flex-direction:column;
+align-items: center;
+width:35vw;
+height:640px;
+box-shadow: 6px 6px 10px rgba(142, 142, 142, 20%);
+margin:1em;
+background-color: transparent;
+`;
+
+
+export const CardMove = styled.div`
+display:flex;
+text-align:left;
+flex-direction:column;
+align-items: center;
+width:40vw;
+height:500px;
+box-shadow: 6px 6px 10px rgba(142, 142, 142, 20%);
+margin:1em;
+background-color: transparent;
+`;
+
+
 export default Pagina;

@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useHistory, useParams } from 'react-router-dom'
 import { goToPokedex, goToDetails, goToHomePage } from '../router/coordinator'
-import { Pagina, Header, Lista, Details } from './Style/Styled'
+import { Pagina, Header, Lista, Details, CardPhoto, CardImg, CardStatus,
+         ContainerStatus, 
+         CardMove,
+         Text, 
+         PokeName,
+         } from './Style/Styled'
 import { useGlobalContext } from '../global/GlobalContext'
 
 export const PokemonDetails = (props) => {
@@ -85,37 +90,43 @@ export const PokemonDetails = (props) => {
             </Header>
             {pokeDetail && (
                 <Lista>
-                    <Details>
-                        <div>
-                            <div className="img">
-                                <img src={pokeDetail.sprites.front_default} />
-                            </div>
-                            <div className="img">
-                                <img src={pokeDetail.sprites.back_default} />
-                            </div>
-                        </div>
-                        <div className="status">
+                    <Details> 
+                        <PokeName> 
+                        <h1>{pokeDetail.name}</h1> 
+                        </PokeName>            
+                        <ContainerStatus>
+                        <CardStatus>
                             <h4>Status</h4>
                             {pokeDetail.stats.map((pokemon) => {
                                 return <p>{pokemon.stat.name}: {pokemon.base_stat}</p>
                             })}
-                        </div>
-                        <div className="type">
-                            {pokeDetail.types.map((pokemon) => {
+                        </CardStatus>
+                        <CardImg>
+                            <CardPhoto className="img">
+                                <img src={pokeDetail.sprites.back_default} />
+                            </CardPhoto>
+                            <CardPhoto className="img">
+                                <img src={pokeDetail.sprites.front_default} />
+                            </CardPhoto>
+                            
+                        </CardImg>
+                        <CardMove>
+                        <Text>
+                             {pokeDetail.types.map((pokemon) => {
                                 return <p>Tipo: {pokemon.type.name}</p>
                             })}
-                        </div>
-                        <div className="moves">
+                            </Text>
                             <h4>Moves</h4>
                             {pokeDetail.moves.map((pokemon, i) => {
                                 if (i < 5) {
                                     return <p>{pokemon.move.name}</p>
                                 } else {
-
                                 }
-
                             })}
-                        </div>
+                         
+                        </CardMove>
+                        
+                        </ContainerStatus>
                     </Details>
                 </Lista>
             )}
